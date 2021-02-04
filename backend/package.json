@@ -4,7 +4,7 @@
   "description": "",
   "main": "loader.js",
   "scripts": {
-    "dev": "nodemon config/server.js",
+    "dev": "nodemon src/config/server.js",
     "production": "pm2 start loader.js"
   },
   "author": "Cristiano Castro",
