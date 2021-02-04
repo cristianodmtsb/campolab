@@ -10,6 +10,7 @@ const dbConnect = new Sequelize(dbConfig);
 Producer.init(dbConnect);
 Farms.init(dbConnect);
 
+Producer.associate(dbConnect.models);
 Farms.associate(dbConnect.models);
 
 module.exports = dbConnect;

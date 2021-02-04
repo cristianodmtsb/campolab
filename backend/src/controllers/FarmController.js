@@ -2,6 +2,17 @@ const Producer = require("../models/Producer");
 const Farms = require("../models/Farms");
 
 module.exports = {
+  //SHOW BY PRODUCER
+  async index(req, res) {
+    const { producer_id } = req.params;
+
+    const producer = await Producer.findByPk(producer_id, {
+      include: { association: "farms" },
+    });
+
+    return res.json(producer);
+  },
+  //CREATE
   async store(req, res) {
     const { producer_id } = req.params;
     const { name_farm } = req.body;
