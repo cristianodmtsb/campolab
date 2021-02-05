@@ -1,15 +1,36 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
-import { ProducerPage } from "../pages";
+import { Route, Routes } from "react-router-dom";
+import {
+  ProducerPage,
+  AddProducerPage,
+  AddFarmPage,
+  ProducerDetailsPage,
+} from "../pages";
 
 const RouterContainer = () => {
   return (
-    <div>
-      <Switch>
-        <Route exact path="/" component={ProducerPage} title="" />
-        {/* <Route path="*" title="Not Found" /> */}
-      </Switch>
-    </div>
+    <Routes>
+      <Route exact path="/" element={<ProducerPage />} title="Homepage" />
+      <Route
+        exact
+        path="/produtor/:id"
+        element={<ProducerDetailsPage />}
+        title="Detalhes Produtor"
+      />
+      <Route
+        exact
+        path="/produtor/adicionar"
+        element={<AddProducerPage />}
+        title="Adicionar Produtor"
+      />
+      <Route
+        exact
+        path="/produtor/:id/fazenda"
+        element={<AddFarmPage />}
+        title="Adicionar Fazenda"
+      />
+      {/* <Route path="*" title="Not Found" /> */}
+    </Routes>
   );
 };
 
