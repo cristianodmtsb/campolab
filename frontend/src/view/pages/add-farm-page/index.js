@@ -1,11 +1,14 @@
 import React from "react";
 import HomeLayout from "../../components/layouts";
 import { AddFarmForm } from "../../components/add-farm";
+import { AddFarmContainer } from "../../containers";
 
 const AddFarmPage = () => {
   return (
     <HomeLayout>
-      <AddFarmForm />
+      <AddFarmContainer>
+        <AddFarmForm />
+      </AddFarmContainer>
     </HomeLayout>
   );
 };
