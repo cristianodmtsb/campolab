@@ -1,7 +1,7 @@
 import { all } from "redux-saga/effects";
 
-import suportTicket from "./modules/suportTicket/sagas";
+import producer from "./modules/producers/sagas";
 
 export default function* rootSaga() {
-  yield all([suportTicket()]);
+  yield all([producer()]);
 }

@@ -1,16 +1,20 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
+import { Maybe } from "../../../utils/functors";
 import Button from "@material-ui/core/Button";
 
 import FormDetailsProducer from "./details-form";
 import TableListFarms from "./table-list-farms";
 
-const DetailsProducer = () => {
+const DetailsProducer = (props) => {
+  const { producer, isLoadingProducerDetails } = props;
+  const { farms } = Maybe.of(producer).get({});
+  console.log("farms", farms);
   const { id } = useParams();
 
   return (
     <>
-      <FormDetailsProducer />
+      <FormDetailsProducer producer={producer} />
       <Button
         variant="contained"
         color="primary"
@@ -19,7 +23,7 @@ const DetailsProducer = () => {
       >
         Adicionar Propriedade
       </Button>
-      <TableListFarms />
+      <TableListFarms farms={farms} />
     </>
   );
 };

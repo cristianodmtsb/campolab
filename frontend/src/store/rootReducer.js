@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 
-import suportTicket from "./modules/suportTicket/reducers";
+import producers from "./modules/producers/reducers";
 
 const appReducer = combineReducers({
-  suportTicket,
+  producers,
 });
 
 const rootReducer = (state, action) => {

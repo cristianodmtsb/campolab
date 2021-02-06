@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Maybe } from "../../../../utils/functors";
 import {
   Table,
   TableBody,
@@ -9,18 +10,14 @@ import {
   Paper,
 } from "@material-ui/core";
 
-function createData(id, name) {
-  return { id, name };
-}
+const TableListFarms = (props) => {
+  const { farms } = Maybe.of(props).get({});
+  const [renderFarms, setRenderFarms] = useState([]);
 
-const rows = [
-  createData(1, "Alexandre Joaquim Vieira"),
-  createData(2, "Heitor Cauã Luiz"),
-  createData(4, "Vinicius Edson Augusto"),
-  createData(5, "Felipe Marcos Severino"),
-];
+  useEffect(() => {
+    setRenderFarms(farms);
+  }, [farms]);
 
-const TableListFarms = () => {
   return (
     <TableContainer component={Paper}>
       <Table aria-label="simple table">
@@ -31,12 +28,12 @@ const TableListFarms = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {renderFarms.map((row) => (
             <TableRow key={row.id}>
               <TableCell component="th" scope="row">
                 {row.id}
               </TableCell>
-              <TableCell align="right">{row.name}</TableCell>
+              <TableCell align="right">{row.nameFarm}</TableCell>
             </TableRow>
           ))}
         </TableBody>

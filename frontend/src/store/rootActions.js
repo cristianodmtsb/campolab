@@ -1,1 +1,1 @@
-export { default as suportTicketActions } from "./modules/suportTicket/actions";
+export { default as producerActions } from "./modules/producers/actions";
