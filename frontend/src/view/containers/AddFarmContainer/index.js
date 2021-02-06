@@ -13,7 +13,6 @@ const AddFarmContainer = ({ children }) => {
   const error = useSelector(farmsSelector.selectError);
 
   const handleCreateFarm = (values) => {
-    console.log(values);
     dispatch(farmActions.createFarmRequest(values));
   };
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-import Button from "@material-ui/core/Button";
+import { Button, Typography, Divider, Grid } from "@material-ui/core";
 
 import FormDetailsProducer from "./details-form";
 import TableListFarms from "./table-list-farms";
@@ -16,18 +16,37 @@ const DetailsProducer = (props) => {
 
   return (
     <>
+      <Typography variant="h2">Produtor: {producer.name}</Typography>
+      <Divider />
       <FormDetailsProducer
         producer={producer}
         handleUpdate={handleUpdateProducer}
       />
-      <Button
-        variant="contained"
-        color="primary"
-        component={Link}
-        to={`/produtor/${id}/fazenda`}
+
+      <Grid
+        container
+        alignItems="flex-end"
+        md={12}
+        style={{ padding: 20, marginTop: 15, marginBottom: 15 }}
       >
-        Adicionar Propriedade
-      </Button>
+        <Divider />
+        <Grid md={6}>
+          <Typography variant="h6">Adicione uma propriedade:</Typography>
+        </Grid>
+        <Grid md={6} align="right">
+          <Button
+            variant="contained"
+            color="primary"
+            component={Link}
+            to={`/produtor/${id}/fazenda`}
+          >
+            Adicionar Propriedade
+          </Button>
+        </Grid>
+
+        <Divider />
+      </Grid>
+
       <TableListFarms farms={producer.farms} />
     </>
   );

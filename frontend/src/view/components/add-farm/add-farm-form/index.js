@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button, TextField } from "@material-ui/core";
+import { Button, TextField, Grid, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,19 +40,28 @@ const AddFarmForm = ({ handleCreateFarm }) => {
       autoComplete="off"
       onSubmit={handleSubmit}
     >
-      <TextField
-        id="producer"
-        label="producer"
-        variant="outlined"
-        value={values.producerId}
-      />
-      <TextField
-        id="name"
-        label="Nome"
-        variant="outlined"
-        onChange={handleChange("nameFarm")}
-      />
-      <Button type="submit">Criar Fazenda</Button>
+      <Typography variant="h4">Adicionar uma Fazenda</Typography>
+      <Grid>
+        <TextField
+          fullWidth
+          id="producer"
+          label="producer"
+          variant="outlined"
+          value={values.producerId}
+        />
+      </Grid>
+      <Grid>
+        <TextField
+          fullWidth
+          id="name"
+          label="Nome"
+          variant="outlined"
+          onChange={handleChange("nameFarm")}
+        />
+      </Grid>
+      <Button type="submit" variant="contained" color="primary">
+        Criar Fazenda
+      </Button>
     </form>
   );
 };

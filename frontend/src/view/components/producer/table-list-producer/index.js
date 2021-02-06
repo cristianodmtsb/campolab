@@ -1,6 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
 import {
+  Button,
   Table,
   TableBody,
   TableCell,
@@ -12,7 +14,7 @@ import {
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 650,
+    maxWidth: "95%",
   },
 });
 
@@ -21,15 +23,15 @@ const TableListProducer = (props) => {
   const classes = useStyles();
 
   return (
-    <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="simple table">
+    <TableContainer component={Paper} className={classes.table}>
+      <Table aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Id</TableCell>
             <TableCell align="right">Nome</TableCell>
             <TableCell align="right">E-mail</TableCell>
             <TableCell align="right">Telefone</TableCell>
-            <TableCell align="right">Ver Mais</TableCell>
+            <TableCell align="right">&nbsp;</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -41,7 +43,16 @@ const TableListProducer = (props) => {
               <TableCell align="right">{row.name}</TableCell>
               <TableCell align="right">{row.email}</TableCell>
               <TableCell align="right">{row.phone}</TableCell>
-              <TableCell align="right">&nbsp;</TableCell>
+              <TableCell align="right">
+                <Button
+                  color="primary"
+                  variant="contained"
+                  component={Link}
+                  to={`/produtor/${row.id}`}
+                >
+                  Leia mais
+                </Button>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

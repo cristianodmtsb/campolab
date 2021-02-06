@@ -5,22 +5,29 @@ import {
   MenuItem,
   Typography,
   ListItemIcon,
+  Divider,
 } from "@material-ui/core";
-import SendIcon from "@material-ui/icons/Send";
-import PriorityHighIcon from "@material-ui/icons/PriorityHigh";
+import PersonAddIcon from "@material-ui/icons/PersonAdd";
+import PeopleAltIcon from "@material-ui/icons/PeopleAlt";
+import logo from "./logo-colorida.png";
 
 export const NavMenu = () => {
   return (
     <MenuList>
+      <img src={logo} alt="Logo" width="80%" />
+      <Divider />
+      <Typography variant="h6" align="center">
+        Menu
+      </Typography>
       <MenuItem component={NavLink} to="/">
         <ListItemIcon>
-          <SendIcon fontSize="small" />
+          <PeopleAltIcon fontSize="small" />
         </ListItemIcon>
         <Typography variant="inherit">Produtores</Typography>
       </MenuItem>
       <MenuItem component={NavLink} to="/produtor/adicionar">
         <ListItemIcon>
-          <PriorityHighIcon fontSize="small" />
+          <PersonAddIcon fontSize="small" />
         </ListItemIcon>
         <Typography variant="inherit">Adicionar Produtor</Typography>
       </MenuItem>

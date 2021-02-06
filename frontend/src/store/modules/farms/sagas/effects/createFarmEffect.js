@@ -1,4 +1,5 @@
 import { put, call } from "redux-saga/effects";
+import history from "../../../../../config/history";
 
 import { request } from "../../../../../utils/http";
 import { createFarmQuery } from "../../repository";
@@ -13,6 +14,7 @@ export function* createFarmEffect({ payload }) {
 
     if (status === 200) {
       yield put(actions.createFarmSuccess());
+      history.push(`/producer/${payload.producerId}`);
     } else {
       yield put(actions.createFarmFailure());
     }

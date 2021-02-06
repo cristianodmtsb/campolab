@@ -4,7 +4,6 @@ const toHttpRequest = (data) => ({
 
 const loadFarmQuery = ({ payload }) => {
   const { producerId } = payload;
-  console.log("query", payload);
   return {
     method: "POST",
     url: `/producers/${producerId}/farms`,
