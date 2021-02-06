@@ -18,7 +18,7 @@ const handleHttpResponse = (res) => {
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default (requestOption, ...args) => {
+const request = async (requestOption, ...args) => {
   let options = {};
 
   if (typeof requestOption === "function") {
@@ -33,5 +33,7 @@ export default (requestOption, ...args) => {
     throw Error("requestOptions must return {url, method}");
   }
 
-  return Axios(options).then(handleHttpResponse);
+  return await Axios(options).then(handleHttpResponse);
 };
+
+export default request;

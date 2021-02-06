@@ -9,7 +9,7 @@ const ProducerPage = () => {
     <HomeLayout>
       <Typography variant="h2">Produtores</Typography>
       <ProducersContainer>
-        <TableListProducers producers={[]} />
+        <TableListProducers />
       </ProducersContainer>
     </HomeLayout>
   );

@@ -1,13 +1,13 @@
 import { put, call } from "redux-saga/effects";
 
-import { requestTo } from "../../../../../utils/http";
+import { request } from "../../../../../utils/http";
 import { deleteProducerQuery } from "../../repository";
 
 import actions from "../../actions";
 
 export function* deleteProducersEffect({ payload }) {
   try {
-    yield call(requestTo, deleteProducerQuery, { producerId: payload });
+    yield call(request, deleteProducerQuery, { producerId: payload });
 
     yield put(actions.deleteProducerSuccess());
   } catch (error) {

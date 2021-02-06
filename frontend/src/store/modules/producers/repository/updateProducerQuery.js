@@ -1,17 +1,17 @@
-import { Maybe } from "../../../../utils/functors";
-
 const toHttpRequest = (data) => ({
   name: data.name,
   email: data.email,
   phone: data.phone,
 });
 
-export default (params) => {
-  const { producerId, data } = Maybe.of(params).get({});
+const loadProducerDetailsQuery = ({ payload }) => {
+  const { id, values } = payload;
 
   return {
     method: "PUT",
-    url: `/producer/${producerId}`,
-    data: toHttpRequest(data),
+    url: `/producers/${id}`,
+    data: toHttpRequest(values),
   };
 };
+
+export default loadProducerDetailsQuery;

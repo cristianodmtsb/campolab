@@ -1,9 +1,11 @@
-export const request = (state, payload, initialState) => ({
-  ...state,
-  isUpdatingProducer: true,
-  updateProducerSuccess: false,
-  error: { ...initialState.error },
-});
+export const request = (state, payload, initialState) => {
+  return {
+    ...state,
+    isUpdatingProducer: true,
+    updateProducerSuccess: false,
+    error: { ...initialState.error },
+  };
+};
 
 export const success = (state) => {
   return {

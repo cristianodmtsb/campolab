@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
+import { Button, TextField } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -11,14 +11,50 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AddProducerForm = () => {
+const AddProducerForm = ({ handleCreateProducer }) => {
   const classes = useStyles();
+  const [values, setValues] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
+
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleCreateProducer(values);
+  };
 
   return (
-    <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="name" label="Nome" variant="outlined" />
-      <TextField id="email" label="e-mail" variant="outlined" />
-      <TextField id="phone" label="Telefone" variant="outlined" />
+    <form
+      className={classes.root}
+      noValidate
+      autoComplete="off"
+      onSubmit={handleSubmit}
+    >
+      <TextField
+        id="name"
+        label="Nome"
+        variant="outlined"
+        onChange={handleChange("name")}
+      />
+      <TextField
+        id="email"
+        label="e-mail"
+        variant="outlined"
+        onChange={handleChange("email")}
+      />
+      <TextField
+        id="phone"
+        label="Telefone"
+        variant="outlined"
+        onChange={handleChange("phone")}
+        type="number"
+      />
+      <Button type="submit">Criar Produtor</Button>
     </form>
   );
 };

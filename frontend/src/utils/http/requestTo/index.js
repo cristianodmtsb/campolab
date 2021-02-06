@@ -18,7 +18,7 @@ const handleHttpResponse = (res) => {
   return buildResponse(res);
 };
 
-export default (requestOption, ...args) => {
+const requestTo = (requestOption, ...args) => {
   let options = {};
 
   if (typeof requestOption === "function") {
@@ -35,3 +35,5 @@ export default (requestOption, ...args) => {
 
   return Axios(options).then(handleHttpResponse);
 };
+
+export default requestTo;

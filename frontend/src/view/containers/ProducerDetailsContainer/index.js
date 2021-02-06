@@ -11,7 +11,7 @@ const ProducerDetailsContainer = ({ children }) => {
 
   const producer = useSelector(producerSelector.selectProducer);
 
-  const { isLoadingProducerDetails } = useSelector(
+  const { isLoadingProducerDetails, updateProducerSuccess } = useSelector(
     producerSelector.selectLoading
   );
 
@@ -19,11 +19,17 @@ const ProducerDetailsContainer = ({ children }) => {
 
   useEffect(() => {
     dispatch(producerActions.loadProducerDetailsRequest(id));
-  }, [dispatch, id]);
+  }, [dispatch]);
+
+  const handleUpdateProducer = (values) => {
+    dispatch(producerActions.updateProducerRequest({ id, values }));
+  };
 
   return containerFactory(children, {
     producer,
     isLoadingProducerDetails,
+    updateProducerSuccess,
+    handleUpdateProducer,
     errorMsg: error.msg,
     hasError: error.hasError,
   });

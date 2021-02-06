@@ -1,13 +1,13 @@
 import { put, call } from "redux-saga/effects";
 
-import { requestTo } from "../../../../../utils/http";
+import { request } from "../../../../../utils/http";
 import { loadProducerDetailsQuery } from "../../repository";
 
 import actions from "../../actions";
 
 export function* loadProducerDetailsEffect({ payload }) {
   try {
-    const { data } = yield call(requestTo, loadProducerDetailsQuery, {
+    const { data } = yield call(request, loadProducerDetailsQuery, {
       producerId: payload,
     });
 

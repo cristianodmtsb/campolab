@@ -24,7 +24,7 @@ export function* watchCreateProducerEffect() {
 }
 
 export function* watchUpdateProducerEffect() {
-  yield takeEvery(Types.CREATE_PRODUCER_REQUEST, updateProducerEffect);
+  yield takeEvery(Types.UPDATE_PRODUCER_REQUEST, updateProducerEffect);
 }
 
 export function* watchDeleteProducerEffect() {

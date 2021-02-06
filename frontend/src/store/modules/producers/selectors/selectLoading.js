@@ -9,6 +9,8 @@ export default (state) =>
       isCreatingProducer: producers.isCreatingProducer,
       isUpdatingProducer: producers.isUpdatingProducer,
       isDeletingProducer: producers.isDeletingProducer,
+      updateProducerSuccess: producers.updateProducerSuccess,
+      createProducerSuccess: producers.createProducerSuccess,
     }))
     .get({
       isLoadingProducers: false,
@@ -16,4 +18,6 @@ export default (state) =>
       isCreatingProducer: false,
       isUpdatingProducer: false,
       isDeletingProducer: false,
+      updateProducerSuccess: false,
+      createProducerSuccess: false,
     });
