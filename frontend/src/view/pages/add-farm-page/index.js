@@ -1,7 +1,13 @@
 import React from "react";
+import HomeLayout from "../../components/layouts";
+import { AddFarmForm } from "../../components/add-farm";
 
 const AddFarmPage = () => {
-  return <div>Adicionar fazendas</div>;
+  return (
+    <HomeLayout>
+      <AddFarmForm />
+    </HomeLayout>
+  );
 };
 
 export default AddFarmPage;
